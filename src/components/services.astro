@@ -1,0 +1,103 @@
+---
+import patent from "../assests/patent.svg"
+import trademark from "../assests/trademark.svg";
+import copyright from "../assests/copyright.png";
+import plant from "../assests/plant.png";
+import design from "../assests/design.svg";
+import scale from "../assests/scale.svg";
+import Image from "astro/components/Image.astro";
+import { getCollection } from "astro:content";
+
+const services = [
+  {
+    image: design,
+    title: "Industrial Designs",
+  },{
+    title: "Copyright",
+    image: copyright,
+  },
+  {
+    image: plant,
+    title: "Plant variety",
+  },
+  {
+    image: trademark,
+    title: "Trademark",
+  },
+  {
+    image: scale,
+    title: "Litigation",
+  },
+  {
+    image: patent,
+    title: "Patents",
+  },
+];
+
+const s=  await getCollection('services');
+
+---
+<section class="py-5">
+  <div class="ourteam text-center wrapper-container relative overflow-hidden">
+    <h1 class="font-bold text-4xl m-5">Services</h1>
+    <div class="cards-wrapper relative">
+      <div class="cards flex scroll gap-4 mx-auto text-left z-30">
+        {s.map((service) => (
+          <div 
+            class="card flex-none w-[220px] h-[250px] sm:w-[260px] sm:h-[300px] md:w-[300px] md:h-[330px] bg-white rounded-2xl p-4 shadow-lg border-2 border-gray-300 transition-transform duration-500 ease-out hover:scale-105"
+          >
+            <Image src={service.data.image} alt="" class="w-4/5 mx-auto" />
+            <div class="card-content p-2">
+              <h2 class="text-main-blue text-center text-xl font-bold">{service.data.title}</h2>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+    <div class="scrollfade left"></div>
+    <div class="scrollfade right"></div>
+  </div>
+</section>
+
+<style>
+.cards-wrapper {
+  overflow: hidden;
+  position: relative;
+}
+
+.scroll {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+@keyframes scrollLoop {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-300px); } /* Return to the original position */
+}
+
+.scroll .card {
+  flex-shrink: 0;
+  animation: scrollLoop 2s linear infinite;
+}
+
+.scrollfade {
+  position: absolute;
+  top: 0;
+  width: 30px;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.scrollfade.left {
+  left: 0;
+  background: linear-gradient(90deg, #fff, transparent);
+}
+
+.scrollfade.right {
+  right: 0;
+  background: linear-gradient(270deg, #fff, transparent);
+}
+
+</style>

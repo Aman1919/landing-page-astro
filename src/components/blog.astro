@@ -1,0 +1,31 @@
+---
+import Image from 'astro/components/Image.astro';
+import Article from "../assests/article.png";
+import { getCollection } from 'astro:content';
+
+const blogs= await getCollection('blog');
+---
+
+
+<section class="py-8">
+  <div class="wrapper-container text-center">
+    <h1 class="text-4xl font-bold mb-6">Related Resources</h1>
+    <div class="cards flex flex-wrap justify-center gap-4 mx-auto text-left z-30">
+     
+{blogs.map(blog=>{
+return  <div class="card w-[300px] h-[300px] bg-gray-200 bg-opacity-50 rounded-xl p-4 border-2 border-gray-400 border-opacity-50 transition-transform duration-500 ease-out hover:scale-105">
+        <div class="flex items-center justify-start gap-5">
+          <Image src={blog.data.logo} alt="Article-logo" class="w-12 h-12" />
+          <p class="text-xl font-bold">Article</p>
+        </div>
+        <div class="mt-4">
+          <h1 class="text-3xl font-bold text-left">
+            {blog.data.title}
+          </h1>
+        </div>
+      </div>
+
+})}
+    </div>
+  </div>
+</section>

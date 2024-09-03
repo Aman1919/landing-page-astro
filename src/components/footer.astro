@@ -1,0 +1,66 @@
+---
+import Image from 'astro/components/Image.astro';
+import Logo from '../assests/logo2.png';
+import facebook from "../assests/facebook.svg";
+import twitter from "../assests/twitter.svg";
+import linkedin from "../assests/linkedin.svg";
+import location from "../assests/location.svg";
+import evnvolope from "../assests/envolope.svg";
+---
+
+
+<footer class="bg-black text-white py-8">
+  <div class="container wrapper-container flex flex-wrap justify-between gap-8">
+
+    <!-- Logo and Description Section -->
+    <div class="flex flex-col items-start max-w-xs">
+      <Image src={Logo} alt="KESHVA INTELLECT Logo" class="mb-4"/>
+      <p class="mb-4">KESHVA INTELLECT is a boutique IP law firm in India providing full services related to IP law.</p>
+      <div class="flex gap-3 mb-4">
+        <a href="#" class="flex items-center justify-center w-8 h-8 rounded-lg bg-gray-800 hover:bg-gray-700">
+          <Image src={facebook} alt="Facebook" class="w-6 h-6"/>
+        </a>
+        <a href="#" class="flex items-center justify-center w-8 h-8 rounded-lg bg-gray-800 hover:bg-gray-700">
+          <Image src={twitter} alt="Twitter" class="w-6 h-6"/>
+        </a>
+        <a href="#" class="flex items-center justify-center w-8 h-8 rounded-lg bg-gray-800 hover:bg-gray-700">
+          <Image src={linkedin} alt="LinkedIn" class="w-6 h-6"/>
+        </a>
+      </div>
+    </div>
+
+    <!-- Quick Links Section -->
+    <div class="max-w-xs">
+      <h2 class="text-xl font-bold mb-2">QUICK LINKS</h2>
+      <div class="bar"></div>
+      <p class="mb-2"><a href="#" class="hover:underline">Home</a></p>
+      <p class="mb-2"><a href="#" class="hover:underline">About</a></p>
+      <p class="mb-2"><a href="#" class="hover:underline">Services</a></p>
+    </div>
+
+    <!-- Company Section -->
+    <div class="max-w-xs">
+      <h2 class="text-xl font-bold mb-2">Company</h2>
+      <div class="bar"></div>
+      <p class="mb-2"><a href="#" class="hover:underline">Home</a></p>
+      <p class="mb-2"><a href="#" class="hover:underline">Blog</a></p>
+      <p class="mb-2"><a href="#" class="hover:underline">Contact</a></p>
+    </div>
+
+    <!-- Contact Info Section -->
+    <div class="max-w-xs">
+      <h2 class="text-xl font-bold mb-2">Contact Info</h2>
+      <div class="bar"></div>
+      <p class="flex items-center mb-2">
+        <Image src={location} alt="Location" class="w-5 h-5 mr-2"/>
+        A-50, Mansa Ram Park, Dwarka Mor, New Delhi-59, India
+      </p>
+      <p class="flex items-center mb-2">
+        <Image src={evnvolope} alt="Email" class="w-5 h-5 mr-2"/>
+        <a href="mailto:ip@keshvaintellect.com" class="hover:underline">ip@keshvaintellect.com</a>
+      </p>
+
+    </div>
+
+  </div>
+</footer>

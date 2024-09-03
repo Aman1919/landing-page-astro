@@ -1,0 +1,102 @@
+---
+import Logo from '../assests/logo2.png';
+import Image from 'astro/components/Image.astro';
+import MobileHeader from './Mobileheader.astro';
+---
+
+<header class="w-full bg-transparent fixed text-white top-0 z-10 transition-all duration-300 ease-in-out">
+  <nav class="wrapper-container flex justify-between items-center py-4">
+    <Image src={Logo} alt="logo" class="max-w-40 md:max-w-60 lg:max-w-80 h-auto" />
+    <ul class="hidden md:flex items-center gap-4">
+      <li><a href="#" class="hover:text-gray-400">Home</a></li>
+      <li><a href="#" class="hover:text-gray-400">Search & Watch Services</a></li>
+      <li class="relative group">
+        <a href="#" class="flex items-center hover:text-gray-400 dropdown">Services +</a>
+        <!-- Submenu -->
+        <ul class="absolute left-0 top-full  p-3 w-52 bg-white text-black rounded-md opacity-0 visibility-hidden hidden group-hover:opacity-100 group-hover:visible group-hover:block transform scale-95 group-hover:scale-100 transition-all duration-200 ease-in-out shadow-lg">
+          <li><a href="#" class="block px-2 py-1 text-sm hover:bg-slate-100">Patent Drafting Service</a></li>
+          <li><a href="#" class="block px-2 py-1 text-sm hover:bg-slate-100">Patent Filing & Prosecution</a></li>
+          <li><a href="#" class="block px-2 py-1 text-sm hover:bg-slate-100">Prior Art Search Report</a></li>
+          <li><a href="#" class="block px-2 py-1 text-sm hover:bg-slate-100">Office Action Support</a></li>
+          <li><a href="#" class="block px-2 py-1 text-sm hover:bg-slate-100">Trademarks</a></li>
+          <li><a href="#" class="block px-2 py-1 text-sm hover:bg-slate-100">Industrial Designs</a></li>
+          <li><a href="#" class="block px-2 py-1 text-sm hover:bg-slate-100">Copyright</a></li>
+          <li><a href="#" class="block px-2 py-1 text-sm hover:bg-slate-100">Plant Variety Protection</a></li>
+          <li><a href="#" class="block px-2 py-1 text-sm hover:bg-slate-100">IP Litigations</a></li>
+        </ul>
+      </li>
+      <li><a href="#" class="hover:text-gray-400">Blog</a></li>
+      <li><a href="#" class="hover:text-gray-400">Contact</a></li>
+    </ul>
+    <!-- Mobile Menu Button -->
+    <div class="md:hidden focus:outline-none  p-0" id="menu-btn">
+<div class="w-10 h-1  mt-2  bg-white rounded"></div>
+<div class="w-10 h-1  mt-2  bg-white rounded"></div>
+<div class="w-10 h-1  mt-2  bg-white rounded"></div>
+    </div>
+  </nav>
+  <!-- Mobile Menu -->
+  <MobileHeader />
+</header>
+
+<style>
+.scroll-nav {
+  background-color: aliceblue;
+  color: black;
+  z-index: 11;
+transition: all 0.3s ease-in-out;
+  animation: slideDown 500ms ease-in-out;
+}
+.scroll-nav #menu-btn div {
+background-color: black;
+}
+
+.dropdown:hover ~ ul,{
+opacity: 1;
+visibility: visible;
+display: block;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+</style>
+
+<script>
+const navLinks = document.querySelector("#mobile-menu") as HTMLElement;
+const menuBtn = document.querySelector("#menu-btn") as HTMLElement;
+const crossBtn = document.querySelector("#cross-btn") as HTMLElement;
+const mobileServicesBtn = document.querySelector("#mobile-services-btn")  as HTMLElement;
+const mobileSubmenu = document.querySelector("#mobile-submenu") as HTMLElement;
+
+menuBtn.addEventListener('click', () => {
+  navLinks.classList.remove("translate-x-full");
+  navLinks.classList.add("translate-x-0");
+  menuBtn.classList.add("hidden");
+});
+
+crossBtn.addEventListener('click', () => {
+  navLinks.classList.add("translate-x-full");
+  menuBtn.classList.remove("hidden");
+});
+
+mobileServicesBtn.addEventListener('click', () => {
+  mobileSubmenu.classList.toggle("hidden");
+});
+
+window.addEventListener('scroll', () => {
+  const header = document.querySelector('header') as HTMLElement;
+  if (window.scrollY > 50) {
+    header.classList.add('scroll-nav');
+  } else {
+    header.classList.remove('scroll-nav');
+  }
+});
+</script>

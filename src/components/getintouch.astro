@@ -1,0 +1,36 @@
+---
+import Image from 'astro/components/Image.astro';
+import BannerImage from '../assests/banner.jpg';
+---
+
+<section class="w-full relative text-white bg-cover bg-center py-12" style="background-image: linear-gradient(111deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('../assests/banner.jpg');">
+  <div class="wrapper-container relative z-10 flex flex-col md:flex-row items-center justify-between gap-8 px-4 md:px-8">
+    
+    <!-- Text Section -->
+    <div class="text-center md:text-left mb-8 md:mb-0">
+      <h1 class="text-3xl md:text-4xl font-bold">Get In Touch</h1>
+      <h2 class="text-lg mt-2">We are here to help you 24x7 with experts</h2>
+    </div>
+
+    <!-- Form Section -->
+    <div class="bg-white text-black w-full md:w-auto max-w-md p-6 rounded-lg shadow-lg">
+      <h1 class="text-2xl md:text-3xl font-bold mb-4">Request Demo Call</h1>
+      <form class="space-y-4">
+        <input type="text" placeholder="Your Name" class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500" />
+        <input type="email" placeholder="Your Email" class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500" />
+        <input type="text" placeholder="Your Phone" class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500" />
+        <input type="text" placeholder="Your Subject" class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500" />
+        <textarea placeholder="Your Message" class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+        <button type="submit" class="w-full p-3 rounded">Send Message</button>
+      </form>
+    </div>
+
+  </div>
+<Image 
+    src={BannerImage} 
+    alt="Banner Image" 
+    class="absolute inset-0 w-full h-full z-0 bg-cover bg-center bg-no-repeat" 
+  />
+  <!-- Gradient Overlay -->
+  <div class="absolute inset-0 bg-gradient-to-r from-black/65 to-black/65"></div>
+</section>
