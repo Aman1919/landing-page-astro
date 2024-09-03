@@ -1,0 +1,44 @@
+---
+import { getCollection } from "astro:content";
+
+import Image from "astro/components/Image.astro";
+import BannerImage from "../../assests/banner1.png";
+import BlogLayout from "../../layouts/BlogLayout.astro";
+export async function getStaticPaths() {
+  const blogEntries = await getCollection("blog");
+  return blogEntries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+const { entry } = Astro.props;
+
+const { Content } = await entry.render();
+console.log(Content);
+
+---
+
+<BlogLayout>
+  <div class="wrapper-container ">
+    <div class="relative w-[700px] max-w-full h-[300px] m-auto">
+      <Image
+        src={BannerImage}
+        alt="Banner Image"
+        class="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
+      />
+
+    </div>
+<div class="w-[700px] max-w-full mt-4 m-auto">
+    <h1 class="text-[var(--primary-orange)] text-2xl">{entry.data.title}</h1>
+    <p>{entry.data.description}</p>
+<Content/>
+</div>
+</div>
+</BlogLayout>
+
+
+<style>
+p{
+margin-top: 1rem;
+}
+</style>

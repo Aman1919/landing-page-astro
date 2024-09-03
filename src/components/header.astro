@@ -2,13 +2,16 @@
 import Logo from '../assests/logo2.png';
 import Image from 'astro/components/Image.astro';
 import MobileHeader from './Mobileheader.astro';
+
+const {bgClasses="absolute bg-transparent text-white"}=Astro.props
+
 ---
 
-<header class="w-full bg-transparent fixed text-white top-0 z-10 transition-all duration-300 ease-in-out">
+<header class={`w-full  ${bgClasses}  top-0 z-10 transition-all duration-300 ease-in-out`}>
   <nav class="wrapper-container flex justify-between items-center py-4">
-    <Image src={Logo} alt="logo" class="max-w-40 md:max-w-60 lg:max-w-80 h-auto" />
+   <a href="/"><Image src={Logo} alt="logo" class="max-w-40 md:max-w-60 lg:max-w-80 h-auto" /></a>
     <ul class="hidden md:flex items-center gap-4">
-      <li><a href="#" class="hover:text-gray-400">Home</a></li>
+      <li><a href="/" class="hover:text-gray-400">Home</a></li>
       <li><a href="#" class="hover:text-gray-400">Search & Watch Services</a></li>
       <li class="relative group">
         <a href="#" class="flex items-center hover:text-gray-400 dropdown">Services +</a>
@@ -25,7 +28,7 @@ import MobileHeader from './Mobileheader.astro';
           <li><a href="#" class="block px-2 py-1 text-sm hover:bg-slate-100">IP Litigations</a></li>
         </ul>
       </li>
-      <li><a href="#" class="hover:text-gray-400">Blog</a></li>
+      <li><a href="/blog" class="hover:text-gray-400">Blog</a></li>
       <li><a href="#" class="hover:text-gray-400">Contact</a></li>
     </ul>
     <!-- Mobile Menu Button -->
@@ -41,10 +44,12 @@ import MobileHeader from './Mobileheader.astro';
 
 <style>
 .scroll-nav {
-  background-color: aliceblue;
+  background-color:#FFFFFF;
   color: black;
+position: fixed;
   z-index: 11;
 transition: all 0.3s ease-in-out;
+border-bottom: 2px solid rgba(0, 0, 0, 0.463);
   animation: slideDown 500ms ease-in-out;
 }
 .scroll-nav #menu-btn div {
@@ -91,10 +96,10 @@ mobileServicesBtn.addEventListener('click', () => {
   mobileSubmenu.classList.toggle("hidden");
 });
 
-window.addEventListener('scroll', () => {
+document.addEventListener('scroll', () => {
   const header = document.querySelector('header') as HTMLElement;
   if (window.scrollY > 50) {
-    header.classList.add('scroll-nav');
+   header.classList.add('scroll-nav');
   } else {
     header.classList.remove('scroll-nav');
   }

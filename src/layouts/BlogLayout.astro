@@ -1,0 +1,14 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/header.astro";
+import Footer from "../components/footer.astro";
+
+---
+
+<Layout title="Blog">
+<main>
+<Header bgClasses={'bg-black text-white sticky'}/>
+<slot/>
+<Footer/>
+</main>
+</Layout>

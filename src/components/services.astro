@@ -46,7 +46,7 @@ const s=  await getCollection('services');
           <div 
             class="card flex-none w-[220px] h-[250px] sm:w-[260px] sm:h-[300px] md:w-[300px] md:h-[330px] bg-white rounded-2xl p-4 shadow-lg border-2 border-gray-300 transition-transform duration-500 ease-out hover:scale-105"
           >
-            <Image src={service.data.image} alt="" class="w-4/5 mx-auto" />
+            <Image src={service.data.image} alt="image" class="w-4/5 mx-auto" />
             <div class="card-content p-2">
               <h2 class="text-main-blue text-center text-xl font-bold">{service.data.title}</h2>
             </div>
@@ -66,19 +66,18 @@ const s=  await getCollection('services');
 }
 
 .scroll {
-  display: flex;
   align-items: center;
+animation:scrollLoop 2s linear infinite;
   white-space: nowrap;
 }
 
 @keyframes scrollLoop {
   0% { transform: translateX(0); }
-  100% { transform: translateX(-300px); } /* Return to the original position */
+  100% { transform: translateX(-50%); }
 }
 
 .scroll .card {
   flex-shrink: 0;
-  animation: scrollLoop 2s linear infinite;
 }
 
 .scrollfade {
