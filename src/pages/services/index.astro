@@ -36,8 +36,8 @@ const { pathname: currentPath } = Astro.url;
         services.map((service) => (
           <Imagecard
             link={`/services/${service.slug}`}
-            image={service.data.image}
-            desc={service.data.description.slice(0, 180)}
+            img={service.data.image}
+            desc={service.data.description}
             title={service.data.title}
           />
         ))

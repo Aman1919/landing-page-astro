@@ -3,6 +3,7 @@ import { getCollection } from "astro:content";
 import BlogLayout from "../../layouts/BlogLayout.astro";
 import Imagecard from "../../components/imagecard.astro";
 import Image from "astro/components/Image.astro";
+import Breadcrumb from "../../components/breadcrumb.astro";
 export async function getStaticPaths() {
   const blogEntries = await getCollection("services");
   return blogEntries.map((entry) => ({
@@ -11,25 +12,43 @@ export async function getStaticPaths() {
   }));
 }
 
+
+
+const { pathname: currentPath } = Astro.url;
+
 // Get the current blog entry and related blogs
 const { entry } = Astro.props;
 const blogs = await getCollection("services");
-const OtherServices = blogs.filter(blog => blog.slug !== entry.slug).slice(0, 3);
+const OtherServices = blogs.filter(blog => blog&&blog.slug !== entry.slug).slice(0, 3);
 const { Content } = await entry.render();
 
 ---
 <BlogLayout bgClasses={'bg-black text-white sticky'}>
-  <div class="wrapper-container">
-    <!-- Banner Image Section -->
-    <div class="relative w-[900px] max-w-full h-[300px] m-auto">
-      <Image
+<div
+      class="relative top-0 w-full mb-6 h-[60vh] lg:h-[70vh] overflow-hidden"
+    >
+    
+<Image
         src={entry.data.image}
         alt="Banner Image"
-        class="absolute inset-0 w-[300px] m-auto h-full bg-cover bg-center bg-no-repeat"
+        class="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
       />
+      <div class="absolute inset-0 bg-gradient-to-r from-black/65 to-black/65">
+      </div>
+      <div class="relative wrapper-container flex items-center h-full px-3">
+        <div class="text-left">
+          <h1 class="text-white text-[clamp(2.1rem,5vw,5rem)] mb-4 relative">
+            {entry.data.title}
+          </h1>
+          <Breadcrumb currentPath={currentPath} />
+        </div>
+      </div>
     </div>
 
-    <div class="w-[700px] max-w-full mt-4 m-auto">
+
+<div class="wrapper-container">
+    
+    <div class="w-full max-w-full mt-4 m-auto">
       <h1 class="text-[var(--primary-orange)] text-3xl font-bold mb-2">{entry.data.title}</h1>
       <p class="text-lg text-gray-600 mb-6">{entry.data.description}</p>
       
@@ -38,11 +57,12 @@ const { Content } = await entry.render();
       </div>
 
     </div>
-    <div class=" flex flex-wrap justify-start gap-4 mx-auto my-8">
+    <div class=" flex flex-wrap justify-between gap-4 mx-auto my-8">
 
-      {OtherServices.map(blog => (
-        <Imagecard title={blog.data.title} image={blog.data.image} link={`/services/${blog.slug}`} desc={blog.data.description}  />
-      ))}
+      {OtherServices.map( (blog) => {
+                   
+return <Imagecard title={blog.data.title} img={blog.data.image} link={`/services/${blog.slug}`} desc={blog.data.description}  />
+      })}
     </div>
   </div>
 </BlogLayout>

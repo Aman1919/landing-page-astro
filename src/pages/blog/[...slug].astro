@@ -4,6 +4,7 @@ import Image from "astro/components/Image.astro";
 import BannerImage from "../../assests/banner1.png";
 import BlogLayout from "../../layouts/BlogLayout.astro";
 import BlogPostCard from "../../components/blogPostCard.astro";
+import Breadcrumb from "../../components/breadcrumb.astro";
 
 // Fetch all blog entries and generate paths
 export async function getStaticPaths() {
@@ -13,6 +14,8 @@ export async function getStaticPaths() {
     props: { entry },
   }));
 }
+
+const { pathname: currentPath } = Astro.url;
 
 // Get the current blog entry and related blogs
 const { entry } = Astro.props;
@@ -24,6 +27,9 @@ const { Content } = await entry.render();
 ---
 
 <BlogLayout bgClasses={'bg-black text-white sticky'}>
+<div class="bg-black py-2 px-2">
+  <Breadcrumb currentPath={currentPath} />
+</div>
   <div class="wrapper-container">
     <!-- Banner Image Section -->
     <div class="relative w-[700px] max-w-full h-[300px] m-auto">
