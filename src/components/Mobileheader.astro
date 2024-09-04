@@ -1,6 +1,8 @@
 ---
 import Image from 'astro/components/Image.astro';
 import Cross from '../assests/cross.svg';
+
+const {services} = Astro.props;
 ---
 
 
@@ -14,16 +16,11 @@ import Cross from '../assests/cross.svg';
       </a>
       <!-- Mobile Submenu -->
       <ul class="hidden flex-col space-y-2 ml-4 mt-2 bg-gray-800 p-4 rounded-md" id="mobile-submenu">
-        
-        <li><a href="#" class="block text-sm">Patent Drafting Service</a></li>
-        <li><a href="#" class="block text-sm">Patent Filing & Prosecution</a></li>
-        <li><a href="#" class="block text-sm">Prior Art Search Report</a></li>
-        <li><a href="#" class="block text-sm">Office Action Support | Response to First Examination Report</a></li>
-        <li><a href="#" class="block text-sm">Trademarks</a></li>
-        <li><a href="#" class="block text-sm">Industrial Designs</a></li>
-        <li><a href="#" class="block text-sm">Copyright</a></li>
-        <li><a href="#" class="block text-sm">Plant Variety Protection</a></li>
-        <li><a href="#" class="block text-sm">IP Litigations</a></li>
+        {
+services.map((service) => (
+        <li><a href={`/services/${service.slug}`} class="block text-sm">{service.data.title}</a></li>
+))
+}
       </ul>
     </li>
     <li><a href="#" class="block py-2">Blog</a></li>

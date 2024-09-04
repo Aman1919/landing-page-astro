@@ -2,8 +2,10 @@
 import Logo from '../assests/logo2.png';
 import Image from 'astro/components/Image.astro';
 import MobileHeader from './Mobileheader.astro';
+import { getCollection } from 'astro:content';
 
 const {bgClasses="absolute bg-transparent text-white"}=Astro.props
+const services=  await getCollection('services');
 
 ---
 
@@ -18,14 +20,9 @@ const {bgClasses="absolute bg-transparent text-white"}=Astro.props
         <!-- Submenu -->
         <ul class="absolute left-0 top-full  p-3 w-52 bg-white text-black rounded-md opacity-0 visibility-hidden hidden group-hover:opacity-100 group-hover:visible group-hover:block transform scale-95 group-hover:scale-100 transition-all duration-200 ease-in-out shadow-lg">
           <li><a href="#" class="block px-2 py-1 text-sm hover:bg-slate-100">Patent Drafting Service</a></li>
-          <li><a href="#" class="block px-2 py-1 text-sm hover:bg-slate-100">Patent Filing & Prosecution</a></li>
-          <li><a href="#" class="block px-2 py-1 text-sm hover:bg-slate-100">Prior Art Search Report</a></li>
-          <li><a href="#" class="block px-2 py-1 text-sm hover:bg-slate-100">Office Action Support</a></li>
-          <li><a href="#" class="block px-2 py-1 text-sm hover:bg-slate-100">Trademarks</a></li>
-          <li><a href="#" class="block px-2 py-1 text-sm hover:bg-slate-100">Industrial Designs</a></li>
-          <li><a href="#" class="block px-2 py-1 text-sm hover:bg-slate-100">Copyright</a></li>
-          <li><a href="#" class="block px-2 py-1 text-sm hover:bg-slate-100">Plant Variety Protection</a></li>
-          <li><a href="#" class="block px-2 py-1 text-sm hover:bg-slate-100">IP Litigations</a></li>
+{services.map((service) => (
+          <li><a href={`/services/${service.slug}`} class="block px-2 py-1 text-sm hover:bg-slate-100">{service.data.title}</a></li>
+))}
         </ul>
       </li>
       <li><a href="/blog" class="hover:text-gray-400">Blog</a></li>
@@ -39,7 +36,7 @@ const {bgClasses="absolute bg-transparent text-white"}=Astro.props
     </div>
   </nav>
   <!-- Mobile Menu -->
-  <MobileHeader />
+  <MobileHeader services={services}/>
 </header>
 
 <style>

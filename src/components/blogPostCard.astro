@@ -1,0 +1,25 @@
+---
+import Image from 'astro/components/Image.astro';
+import type { CollectionEntry } from 'astro:content';
+
+type Props = {
+        blog: CollectionEntry<'blog'>;
+        width?: string;
+        scale?:string
+}
+
+
+const {blog,width="w-[300px]",scale="hover:scale-105"} = Astro.props;
+---
+
+
+<div class={`${width} card p-6 m-4 bg-white border border-gray-200 rounded-lg transition-transform duration-500 ease-out ${scale}`}>
+          <Image src={blog.data.logo} alt="Article-logo" class="w-12 h-12" />
+    <a href={`/blog/${blog.data.title}`}>
+        <h5 class="mb-2 text-2xl font-semibold tracking-tight text-gray-900">{blog.data.title}</h5>
+    </a>
+    <p class="mb-3 font-normal text-gray-500">{blog.data.description.slice(0,100)}</p>
+    <a href={`/blog/${blog.slug}`} class="inline-flex font-medium items-center text-[var(--primary-orange)] hover:underline">
+        Read More
+    </a>
+</div>

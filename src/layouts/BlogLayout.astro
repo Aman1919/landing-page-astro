@@ -3,11 +3,13 @@ import Layout from "../layouts/Layout.astro";
 import Header from "../components/header.astro";
 import Footer from "../components/footer.astro";
 
+const {bgClasses} = Astro.props
+
 ---
 
 <Layout title="Blog">
 <main>
-<Header bgClasses={'bg-black text-white sticky'}/>
+<Header {bgClasses}/>
 <slot/>
 <Footer/>
 </main>
