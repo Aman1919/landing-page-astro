@@ -6,7 +6,6 @@ import plant from "../assests/plant.png";
 import design from "../assests/design.svg";
 import scale from "../assests/scale.svg";
 import Image from "astro/components/Image.astro";
-import { getCollection } from "astro:content";
 
 const services = [
   {
@@ -34,7 +33,6 @@ const services = [
   },
 ];
 
-const s=  await getCollection('services');
 
 ---
 <section class="py-5">

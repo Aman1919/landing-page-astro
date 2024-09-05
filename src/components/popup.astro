@@ -9,9 +9,11 @@
 </div>
 
 <script>
-  document.getElementById('acceptButton').addEventListener('click', function() {
-    document.getElementById('disclaimer').style.display = 'none';
- document.querySelector('main').classList.remove('disable-scroll');
+  document.getElementById('acceptButton')?.addEventListener('click', function() {
+const disclaimer = document.getElementById('disclaimer');
+if(!disclaimer)return;
+    disclaimer.style.display = 'none';
+ document.querySelector('main')?.classList.remove('disable-scroll');
   });
 </script>
 
