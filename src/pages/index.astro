@@ -25,7 +25,7 @@ import BannerImage from '../assests/banner1.png';
 <DISCLAIMER/>
 </Layout>
 
-<script>
+<script is:inline>
 
 window.onload = function() {
 const disclaimer = document.getElementById('disclaimer');
@@ -35,7 +35,7 @@ if(!disclaimer)return;
     disclaimer.style.display = 'none';
 document.body.style.overflow = 'auto';
   }else{
-    disclaimer.style.display = 'flex';
+    disclaimer.style.display = 'block';
 document.body.style.overflow = 'hidden';
 }
 document.getElementById('acceptButton')?.addEventListener('click', function() {
