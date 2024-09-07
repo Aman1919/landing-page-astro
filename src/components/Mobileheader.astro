@@ -6,10 +6,10 @@ const {services} = Astro.props;
 ---
 
 
-<ul class="fixed inset-y-0 right-0 w-full bg-black text-white p-12 transform translate-x-full transition-transform duration-300 ease-in-out" id="mobile-menu">
+<ul class="fixed inset-y-0 right-0 w-full bg-black text-white p-12 transform translate-x-full uppercase transition-transform duration-300 ease-in-out" id="mobile-menu">
     <button class="absolute top-2 right-2 text-white focus:outline-none w-14 h-14 bg-transparent" id="cross-btn"><Image src={Cross} alt="" /></button>
-    <li><a href="#" class="block py-2">Home</a></li>
-    <li><a href="#" class="block py-2">Search & Watch Services</a></li>
+    <li><a href="#" class="block py-2">HOME</a></li>
+    <li><a href="#" class="block py-2">SEARCH & WATCH SERVICES</a></li>
     <li class="relative">
       <a href="#" class="flex justify-between items-center py-2" id="mobile-services-btn">
         Services <span>+</span>
@@ -23,6 +23,6 @@ services.map((service) => (
 }
       </ul>
     </li>
-    <li><a href="#" class="block py-2">Blog</a></li>
-    <li><a href="#" class="block py-2">Contact</a></li>
+    <li><a href="/blog" class="block py-2">BLOG</a></li>
+    <li><a href="#" class="block py-2">CONTACT</a></li>
   </ul>

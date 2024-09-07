@@ -6,6 +6,9 @@ const getBreadcrumbs = (path: string): Breadcrumb => {
 const breadcrumbs = ['Home'];
 const pathArray = path.split('/').filter(Boolean);
 breadcrumbs.push(...pathArray);
+breadcrumbs.forEach((breadcrumb,i) => {
+    breadcrumbs[i] = breadcrumb.charAt(0).toUpperCase() + breadcrumb.slice(1).replace(/-/g, " ");
+});
 return breadcrumbs
 
 };

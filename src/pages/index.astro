@@ -8,12 +8,14 @@ import Blog from '../components/blog.astro';
 import GetInTouch from '../components/getintouch.astro';
 import Footer from "../components/footer.astro"
 import DISCLAIMER from "../components/popup.astro"
+import BannerImage from '../assests/banner1.png';
+
 ---
 
 <Layout title="Landing Page" >
-<main class="disable-scroll">
+<main>
 	<Header/>
-<Banner/>
+<Banner title="Kieshva Intellect" span="Absolutely, We protect your IP" img={BannerImage}/>
 <Services/>
 <Reviews/>
 <Blog/>
@@ -23,10 +25,25 @@ import DISCLAIMER from "../components/popup.astro"
 <DISCLAIMER/>
 </Layout>
 
-<style>
-.disable-scroll{
-overflow: hidden;
-opacity: 50%;	
-cursor: none;
+<script>
+
+window.onload = function() {
+const disclaimer = document.getElementById('disclaimer');
+if(!disclaimer)return;
+
+  if (sessionStorage.getItem('acceptDisclaimer') === 'true') {
+    disclaimer.style.display = 'none';
+document.body.style.overflow = 'auto';
+  }else{
+    disclaimer.style.display = 'flex';
+document.body.style.overflow = 'hidden';
 }
-	</style>
+document.getElementById('acceptButton')?.addEventListener('click', function() {
+    sessionStorage.setItem('acceptDisclaimer', 'true');
+    disclaimer.style.display = 'none';
+document.body.style.overflow = 'auto';
+  });
+}
+
+  
+</script>

@@ -1,12 +1,15 @@
 ---
 import Image from 'astro/components/Image.astro';
-import BannerImage from '../assests/banner1.png';
+import Breadcrumb from '../components/breadcrumb.astro';
+
+const {img,title,currentPath,span} = Astro.props
+const class1 = "relative top-0 w-full mb-6 h-[60vh] lg:h-[70vh] overflow-hidden"
 ---
 
-<div class="relative w-full lg:h-screen h-[60vh] overflow-hidden">
+<div class={currentPath?class1:"relative w-full lg:h-screen h-[60vh] overflow-hidden"}>
   <!-- Background Image -->
   <Image 
-    src={BannerImage} 
+    src={img} 
     alt="Banner Image" 
     class="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat" 
   />
@@ -16,14 +19,15 @@ import BannerImage from '../assests/banner1.png';
   <div class="relative wrapper-container flex items-center  h-full px-3">
      <div class="text-left">
       <h1 class="text-white text-[clamp(2.1rem,5vw,5rem)] mb-4 relative">
-        Kieshva Intellect
-        <span class="block text-[clamp(1rem,2vw,2rem)] font-medium mt-2 relative -right-[clamp(25%,12vw,25vw)] top-[100%]">
-          Absolutely, We protect your IP
-        </span>
+        {title}
+        {(span)?<span class="block text-[clamp(1rem,2vw,2rem)] font-medium mt-2 relative -right-[clamp(25%,12vw,25vw)] top-[100%]">
+          {span}
+        </span>:""}
       </h1>
-      <button class=" rounded-md mt-4 px-10 py-3">
+        {(currentPath)?<Breadcrumb currentPath={currentPath}/>:""}
+      {span?<a class=" rounded-md mt-4 px-10 py-3 btn" href="/about">
         Learn More
-      </button>
+      </a>:""}
     </div>
   </div>
 </div>

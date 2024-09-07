@@ -1,35 +1,16 @@
 ---
 import { getCollection } from "astro:content";
 import BlogLayout from "../../layouts/BlogLayout.astro";
-import Image from "astro/components/Image.astro";
 import BlogPage from "../../assests/blogpage.png";
-import Breadcrumb from "../../components/breadcrumb.astro";
 import Imagecard from "../../components/imagecard.astro";
+import Banner from "../../components/banner.astro";
 const services = await getCollection("services");
 const { pathname: currentPath } = Astro.url;
 ---
 
 <BlogLayout>
   
-    <div
-      class="relative top-0 w-full mb-6 h-[60vh] lg:h-[70vh] overflow-hidden"
-    >
-      <Image
-        src={BlogPage}
-        alt="Banner Image"
-        class="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
-      />
-      <div class="absolute inset-0 bg-gradient-to-r from-black/65 to-black/65">
-      </div>
-      <div class="relative wrapper-container flex items-center h-full px-3">
-        <div class="text-left">
-          <h1 class="text-white text-[clamp(2.1rem,5vw,5rem)] mb-4 relative">
-            Services
-          </h1>
-          <Breadcrumb currentPath={currentPath} />
-        </div>
-      </div>
-    </div>
+<Banner title="Services" {currentPath} img={BlogPage}/>
 
     <div class="wrapper-container justify-evenly items-center m-4 flex flex-wrap gap-3">
       {
