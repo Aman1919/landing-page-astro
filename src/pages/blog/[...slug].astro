@@ -26,7 +26,7 @@ const relatedBlogs = blogs.filter(blog => blog.slug !== entry.slug);
 const { Content } = await entry.render();
 ---
 
-<BlogLayout bgClasses={'bg-black text-white sticky'}>
+<BlogLayout bgClasses={'bg-black text-white sticky'} title={entry.data.title}>
 <div class="bg-black py-2 px-2">
   <Breadcrumb currentPath={currentPath} />
 </div>

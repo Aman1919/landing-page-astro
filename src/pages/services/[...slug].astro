@@ -23,7 +23,7 @@ const OtherServices = services
 const { Content } = await entry.render();
 ---
 
-<BlogLayout bgClasses={"bg-black text-white sticky"}>
+<BlogLayout bgClasses={"bg-black text-white sticky"} title={entry.data.title}>
 
 <Banner title={entry.data.title} {currentPath} img={entry.data.image}/>
 

@@ -12,7 +12,7 @@ const { pathname: currentPath } = Astro.url;
 const blogs = await getCollection("blog");
 ---
 
-<BlogLayout>
+<BlogLayout title="Blogs">
   <div class="relative">
     <Banner title="Services" {currentPath} img={BlogPage} />
 
