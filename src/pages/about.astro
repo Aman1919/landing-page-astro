@@ -1,39 +1,21 @@
 ---
 import BlogLayout from "../layouts/BlogLayout.astro"
-
-
 import BlogPage from "../assests/blogpage.png";
-import Image from "astro/components/Image.astro";
-import Breadcrumb from "../components/breadcrumb.astro";
+import Banner from "../components/banner.astro";
 const { pathname:currentPath }= Astro.url;
 ---
 
 
 
 <BlogLayout>
-<div
-      class="relative top-0 w-full mb-6 h-[60vh] lg:h-[70vh] overflow-hidden"
-    >
-      <Image
-        src={BlogPage}
-        alt="Banner Image"
-        class="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
-      />
-      <div class="absolute inset-0 bg-gradient-to-r from-black/65 to-black/65">
-      </div>
-      <div class="relative wrapper-container flex items-center h-full px-3">
-        <div class="text-left">
-          <h1 class="text-white text-[clamp(2.1rem,5vw,5rem)] mb-4 relative">
-            About
-          </h1>
-          <Breadcrumb currentPath={currentPath} />
-        </div>
-      </div>
-    </div>
 
-<div class="w-[90%] m-auto custom-content-wrapper mb-5  prose prose-lg text-gray-800">
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi dignissimos consequuntur iure quo non expedita quas et! Laboriosam eaque ipsa, aperiam, vero, rerum eius tempora maiores veniam recusandae beatae nihil maxime dicta? Iusto expedita perspiciatis animi fugit, voluptatibus nulla consequatur, velit placeat autem ipsam voluptate, ex ea ducimus nam dolores!</p>
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi dignissimos consequuntur iure quo non expedita quas et! Laboriosam eaque ipsa, aperiam, vero, rerum eius tempora maiores veniam recusandae beatae nihil maxime dicta? Iusto expedita perspiciatis animi fugit, voluptatibus nulla consequatur, velit placeat autem ipsam voluptate, ex ea ducimus nam dolores!</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi dignissimos consequuntur iure quo non expedita quas et! Laboriosam eaque ipsa, aperiam, vero, rerum eius tempora maiores veniam recusandae beatae nihil maxime dicta? Iusto expedita perspiciatis animi fugit, voluptatibus nulla consequatur, velit placeat autem ipsam voluptate, ex ea ducimus nam dolores!</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi dignissimos consequuntur iure quo non expedita quas et! Laboriosam eaque ipsa, aperiam, vero, rerum eius tempora maiores veniam recusandae beatae nihil maxime dicta? Iusto expedita perspiciatis animi fugit, voluptatibus nulla consequatur, velit placeat autem ipsam voluptate, ex ea ducimus nam dolores!</p>
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi dignissimos consequuntur iure quo non expedita quas et! Laboriosam eaque ipsa, aperiam, vero, rerum eius tempora maiores veniam recusandae beatae nihil maxime dicta? Iusto expedita perspiciatis animi fugit, voluptatibus nulla consequatur, velit placeat autem ipsam voluptate, ex ea ducimus nam dolores!</p>
+<Banner img={BlogPage} {currentPath} title="About"/>
+
+
+<div class="w-[90%] m-auto custom-content-wrapper my-7  prose prose-lg text-gray-800">
+<p>Welcome to Kieshva Intellect, your premier destination for Intellectual Property Rights solutions in India. As a dedicated firm, we specialize in patents, trademarks, and designs. Our expert team, comprising engineers and seasoned patent and trademark attorneys, are trained to navigate the intricacies of filing and processing IPR applications at India's national IP Offices.</p>
+<p>Our proactive approach ensures clients stay informed about crucial deadlines, allowing timely actions to prevent confusion. At Kieshva Intellect, we believe in unlocking cutting-edge information hidden in vast IP databases. Our experienced professionals provide value-added insights in the IPR field, highly sought after by multinational corporations and patent attorneys outsourcing their IP-related work to us.</p>
+<p>With meticulous searches, we guide clients to secure IP rights for their inventions, crafting unique claims through our expert support. Choose Kieshva Intellect for precision, innovation, and the protection of your intellectual assets. Welcome to a future where your ideas flourish under our committed guidance.</p>
+
 </div>
 </BlogLayout>

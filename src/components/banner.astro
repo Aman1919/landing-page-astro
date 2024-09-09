@@ -3,7 +3,7 @@ import Image from 'astro/components/Image.astro';
 import Breadcrumb from '../components/breadcrumb.astro';
 
 const {img,title,currentPath,span} = Astro.props
-const class1 = "relative top-0 w-full mb-6 h-[60vh] lg:h-[70vh] overflow-hidden"
+const class1 = "relative top-0 w-full h-[60vh] lg:h-[70vh] overflow-hidden"
 ---
 
 <div class={currentPath?class1:"relative w-full lg:h-screen h-[60vh] overflow-hidden"}>
@@ -18,14 +18,14 @@ const class1 = "relative top-0 w-full mb-6 h-[60vh] lg:h-[70vh] overflow-hidden"
   <!-- Content -->
   <div class="relative wrapper-container flex items-center  h-full px-3">
      <div class="text-left">
-      <h1 class="text-white text-[clamp(2.1rem,5vw,5rem)] mb-4 relative">
+      <h1 class="text-white uppercase text-[clamp(1.7rem,4.5vw,4.5rem)] mb-4 relative">
         {title}
-        {(span)?<span class="block text-[clamp(1rem,2vw,2rem)] font-medium mt-2 relative -right-[clamp(25%,12vw,25vw)] top-[100%]">
+        {(span)?<span class="block text-[clamp(1rem,2vw,2rem)] normal-case font-medium mt-2 relative -right-[clamp(25%,12vw,25vw)] top-[100%]">
           {span}
         </span>:""}
       </h1>
         {(currentPath)?<Breadcrumb currentPath={currentPath}/>:""}
-      {span?<a class=" rounded-md mt-4 px-10 py-3 btn" href="/about">
+      {span?<a class=" rounded-md mt-4 px-2 w-36 py-3 btn" href="/about">
         Learn More
       </a>:""}
     </div>
