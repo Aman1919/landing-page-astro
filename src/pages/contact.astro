@@ -22,17 +22,24 @@ const { pathname: currentPath } = Astro.url;
         <h2 class="text-xl font-bold mb-2">Contact Info</h2>
         <div class="bar mb-4"></div>
         <div class="flex items-center mb-2">
-          <Location />
-          <p class="ml-2">A-50, Mansa Ram Park, Dwarka Mor, New Delhi-59, India</p>
+         
+          <p class="ml-2"><span class="font-bold uppercase">Registered office at:</span> A-50, Mansa Ram Park, Dwarka Mor, New Delhi-110 059, India</p>
         </div>
         <div class="flex items-center mb-2">
-          <Envelope />
-          <p class="ml-2">ip@kieshvaintellect.com | patents@kieshvaintellect.com</p>
+          <p class="ml-2"><span class="font-bold uppercase">Mail us at:</span> ip@kieshvaintellect.com | patents@kieshvaintellect.com</p>
         </div>
         <div class="flex items-center mb-2">
-<Phone/>
-
-          <p class="ml-2">011-4607 6169 | 011 – 4607 6204 | +91 83840 19191</p>
+          <p class="ml-2"><span class="font-bold uppercase">Phone:</span> +91 11 4607 6169 | +91 11 4607 6204</p>
+        </div>
+        <div class="flex items-center mb-2">
+          <p class="ml-2"><span class="font-bold uppercase">Cellphone:</span> +91 83840 19191</p>
+        </div>
+<div class="flex items-center mb-2">
+          <p class="ml-2"><span class="font-bold uppercase">Satellite offices at:</span> U.S.A, Bangladesh, Nepal, Bhutan, Sri Lanka, Pakistan, Myanmar & Maldives.</p>
+        </div>
+<div class="flex items-center mb-2">
+          <p class="ml-2"><span class="font-bold uppercase">Website: </span>  www.kieshvaintellect.com
+</p>
         </div>
       </div>
 
@@ -50,7 +57,7 @@ const { pathname: currentPath } = Astro.url;
   <section class="w-full flex items-center justify-center h-auto py-12 bg-white">
     <div class="max-w-full w-full lg:w-[1000px] bg-black bg-opacity-5 flex flex-col lg:flex-row justify-evenly items-center p-6">
       <Image src={getintouch} alt="Get in Touch" class="w-full lg:w-[50%] mb-6 lg:mb-0" />
-      <Form classes="w-full lg:w-[45%] bg-transparent" title="Contact Us" />
+      <Form classes="w-full lg:w-[45%] bg-transparent" />
     </div>
   </section>
 </BlogLayout>
