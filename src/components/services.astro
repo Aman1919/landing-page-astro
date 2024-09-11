@@ -11,25 +11,31 @@ const services = [
   {
     image: design,
     title: "Industrial Designs",
+src:"industrial-designs",
   },{
     title: "Copyright",
     image: copyright,
+src:'copyright',
   },
   {
     image: plant,
     title: "Plant variety",
-  },
+src:'plant-variety',  
+},
   {
     image: trademark,
     title: "Trademark",
+src:'trademark',
   },
   {
     image: scale,
     title: "Litigation",
-  },
+src:"litigation", 
+ },
   {
     image: patent,
     title: "Patents",
+src:"patent-drafting-service",
   },
 ];
 
@@ -41,7 +47,7 @@ const services = [
     <div class="cards-wrapper slider">
       <div class="cards  ">
         {services.map((service,i) => (
-          <div 
+          <a href={`/services/${service.src}`} 
             class="card flex-none  bg-white rounded-2xl p-4 shadow-lg border-2 border-gray-300 transition-transform duration-500 ease-out hover:scale-105"
 style={"--position:"+(i+1)}           
 >
@@ -49,7 +55,7 @@ style={"--position:"+(i+1)}
             <div class="card-content p-2">
               <h2 class="text-main-blue text-center text-xl font-bold">{service.title}</h2>
             </div>
-          </div>
+          </a>
         ))}
       </div>
     </div>
