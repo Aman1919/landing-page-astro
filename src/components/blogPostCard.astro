@@ -9,7 +9,7 @@ type Props = {
 }
 
 
-const {blog,width="w-[300px]",scale="hover:scale-105"} = Astro.props;
+const {blog,width="max-w-[400px]",scale="hover:scale-105"} = Astro.props;
 ---
 
 
@@ -18,7 +18,7 @@ const {blog,width="w-[300px]",scale="hover:scale-105"} = Astro.props;
     <a href={`/blog/${blog.data.title}`}>
         <h5 class="mb-2 text-2xl font-semibold tracking-tight text-gray-900">{blog.data.title}</h5>
     </a>
-    <p class="mb-3 font-normal text-gray-500">{blog.data.description.slice(0,100)}</p>
+    <p class="mb-3 font-normal text-gray-500">{blog.data.description.slice(0,200)}...</p>
     <a href={`/blog/${blog.slug}`} class="inline-flex font-medium items-center text-[var(--primary-orange)] hover:underline">
         Read More
     </a>

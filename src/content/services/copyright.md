@@ -1,4 +1,5 @@
 ---
+id: 7
 title: "Copyright"
 description: "Sustainable design Copyright is a bundle of rights given by the law to the original creators of literary, dramatic, musical and artistic works and the producers of cinematograph films and sound recordings. The rights provided under Copyright law include the rights of reproduction of the work, communication of the work to the public, adaptation of the work and translation of the work."
 image: "./imgs/copyright.png"

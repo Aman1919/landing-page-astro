@@ -1,4 +1,5 @@
 ---
+id: 8
 title: "Plant Variety"
 image: "./imgs/plant.png"
 description: "Plant variety registration in India is governed under Protection of Plant Varieties and Farmers' Rights Act, 2001. Unlike the patent system the plant variety does not need to qualify the test of inventive step rather the plant variety has to pass through DUS test."

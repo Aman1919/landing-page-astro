@@ -1,4 +1,5 @@
 ---
+id: 4
 title: "Prior Art Search Report"
 image: "./imgs/search.png"
 description: "Before filing a patent application a prior art search is necessary to ensure about the novelty and inventive step of the subject matter to be sought for protection. We prepare prior art search reports wherein the closest document related to the invention in question are found by searching in patent and non-patent databases."

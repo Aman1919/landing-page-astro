@@ -3,7 +3,7 @@ import { z, defineCollection } from 'astro:content';
 // 2. Define a `type` and `schema` for each collection
 const blogCollection = defineCollection({
   type: 'content', 
-schema: ({ image }) => z.object({
+  schema: ({ image }) => z.object({
     title: z.string(),
     logo: image(),
        description: z.string(),
@@ -14,6 +14,7 @@ schema: ({ image }) => z.object({
 const serviceCollection = defineCollection({
 type: 'content',
   schema: ({ image }) => z.object({
+  id:z.number(),
     title: z.string(),
     image: image(),
     description: z.string(),

@@ -1,5 +1,6 @@
 ---
-title: "Patent Filing Prosecution"
+id: 1
+title: "Patent Filing And Prosecution"
 image: "./imgs/patent-procecution.png"
 description: "Filing a patent application with the Indian Patent Office involves a structured procedure to secure intellectual property rights effectively. The process begins with the preparation of a patent application comprising a detailed specification, claims, drawings, and an abstract, adhering to the format prescribed by the Indian Patent Act and Rules."
 ---

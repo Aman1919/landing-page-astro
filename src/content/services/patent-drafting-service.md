@@ -1,4 +1,5 @@
 ---
+id: 2
 title: "Patent Drafting Service"
 image: "./imgs/design.png"
 description: "A patent application includes sections such as the Technical Field, Summary, Detailed Specification, and Claims, all drafted with precision to ensure clarity and legal compliance. We collaborate with clients to refine the patent, ensuring it accurately reflects the invention. Our expertise in"

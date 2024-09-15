@@ -6,6 +6,9 @@ import { getCollection } from 'astro:content';
 
 const {bgClasses="absolute bg-transparent text-white"}=Astro.props
 const services=  await getCollection('services');
+services.sort((a: any, b: any) => {
+    return a.data.id - b.data.id;
+  });
 
 ---
 

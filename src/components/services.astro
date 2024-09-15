@@ -67,6 +67,7 @@ style={"--position:"+(i+1)}
             --width: 200px;
             --height: 250px;
             --quantity: 6;
+--speed:15s;
   width: 100%;
     height: 300px;
     overflow: hidden;
@@ -94,9 +95,9 @@ flex-shrink: 0;
     position: absolute;
 max-width: 100%;
     left: 100%;
-    animation: autoRun 11s linear infinite;
+    animation: autoRun var(--speed) linear infinite;
     transition: filter 0.5s;
-    animation-delay: calc( (11s / var(--quantity)) * (var(--position) - 1) - 11s);
+    animation-delay: calc( (var(--speed) / var(--quantity)) * (var(--position) - 1) - var(--speed));
 }
 
 .card img{

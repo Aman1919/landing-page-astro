@@ -1,4 +1,5 @@
 ---
+id: 6
 title: "Industrial Designs"
 image: "./imgs/design.png"
 description: "Design matters for several reasons, and its significance extends across various fields, from product and graphic design to user experience (UX) and architecture."
