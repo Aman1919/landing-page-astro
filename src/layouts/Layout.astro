@@ -1,4 +1,5 @@
 ---
+	import Whatsapp from '../components/whatsapp.astro';
 interface Props {
 	title: string;
 }
@@ -19,6 +20,7 @@ const { title ='Landing Page' } = Astro.props;
 	<body > 
 
 		<slot />
+		<Whatsapp/>
 	</body>
 </html>
 <style is:global>
@@ -48,6 +50,7 @@ width: 100%;
   font-size: 1.1rem;
   line-height: 1.8;
   color: #333;
+  text-align:justify;
 }
 
 .custom-content-wrapper h2 {
@@ -86,4 +89,5 @@ height: 5px;
 border-radius: 10px;
 margin: 20px 0px;
 }
+
 </style>

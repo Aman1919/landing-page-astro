@@ -1,21 +1,38 @@
 ---
-import BlogLayout from "../layouts/BlogLayout.astro"
+import BlogLayout from "../layouts/BlogLayout.astro";
 import BlogPage from "../assests/blogpage.png";
 import Banner from "../components/banner.astro";
-const { pathname:currentPath }= Astro.url;
+const { pathname: currentPath } = Astro.url;
 ---
 
-
-
 <BlogLayout title="About">
+  <Banner img={BlogPage} {currentPath} title="About" />
 
-<Banner img={BlogPage} {currentPath} title="About"/>
-
-
-<div class="w-[90%] m-auto custom-content-wrapper my-7  prose prose-lg text-gray-800">
-<p>Welcome to Kieshva Intellect, your premier destination for Intellectual Property Rights solutions in India. As a dedicated firm, we specialize in patents, trademarks, and designs. Our expert team, comprising engineers and seasoned patent and trademark attorneys, are trained to navigate the intricacies of filing and processing IPR applications at India's national IP Offices.</p>
-<p>Our proactive approach ensures clients stay informed about crucial deadlines, allowing timely actions to prevent confusion. At Kieshva Intellect, we believe in unlocking cutting-edge information hidden in vast IP databases. Our experienced professionals provide value-added insights in the IPR field, highly sought after by multinational corporations and patent attorneys outsourcing their IP-related work to us.</p>
-<p>With meticulous searches, we guide clients to secure IP rights for their inventions, crafting unique claims through our expert support. Choose Kieshva Intellect for precision, innovation, and the protection of your intellectual assets. Welcome to a future where your ideas flourish under our committed guidance.</p>
-
-</div>
+  <div
+    class="w-[90%] m-auto custom-content-wrapper my-7 prose prose-lg text-gray-800"
+  >
+    <p>
+      Welcome to Kieshva Intellect, your premier destination for Intellectual
+      Property Rights solutions in India. As a dedicated firm, we specialize in
+      patents, trademarks, and designs. Our expert team, comprising engineers
+      and seasoned patent and trademark attorneys, are trained to navigate the
+      intricacies of filing and processing IPR applications at India's national
+      IP Offices.
+    </p>
+    <p>
+      Our proactive approach ensures clients stay informed about crucial
+      deadlines, allowing timely actions to prevent confusion. At Kieshva
+      Intellect, we believe in unlocking cutting-edge information hidden in vast
+      IP databases. Our experienced professionals provide value-added insights
+      in the IPR field, highly sought after by multinational corporations and
+      patent attorneys outsourcing their IP-related work to us.
+    </p>
+    <p>
+      With meticulous searches, we guide clients to secure IP rights for their
+      inventions, crafting unique claims through our expert support. Choose
+      Kieshva Intellect for precision, innovation, and the protection of your
+      intellectual assets. Welcome to a future where your ideas flourish under
+      our committed guidance.
+    </p>
+  </div>
 </BlogLayout>
