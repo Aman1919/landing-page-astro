@@ -12,9 +12,9 @@ const blogs = await getCollection("blog");
 
 <BlogLayout title="Blogs">
   <div class="relative">
-    <Banner title="Services" {currentPath} img={BlogPage} />
+    <Banner title="Blogs" {currentPath} img={BlogPage} />
 
-    <div class="wrapper-container justify-center gap-4 mx-auto top text-left z-30">
+    <div class="wrapper-container justify-center gap-4 py-2 mx-auto top text-left z-30">
       {
         blogs.map((blog) => {
           return <BlogPostCard blog={blog} width="w-full" scale="" />;

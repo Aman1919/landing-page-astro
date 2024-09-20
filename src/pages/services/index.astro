@@ -12,7 +12,7 @@ const { pathname: currentPath } = Astro.url;
   
 <Banner title="Services" {currentPath} img={BlogPage}/>
 
-    <div class="wrapper-container justify-evenly items-center m-4 flex flex-wrap gap-3">
+    <div class="wrapper-container justify-evenly items-center m-4 py-2 flex flex-wrap gap-3">
       {
         services.map((service) => (
           <Imagecard
