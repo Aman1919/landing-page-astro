@@ -49,14 +49,13 @@ const { classes } = Astro.props;
 
 form.addEventListener('submit', handleSubmit);
 
-async function handleSubmit(e) {
-  e.preventDefault();
-  
+async function handleSubmit(event) {
+  event.preventDefault();
   const name = form["Name"].value;
   const email = form["Email"].value;
   const phone = form["Phone no."].value;
-  
-  const url = "https://script.google.com/macros/s/AKfycbxjrm0JHKX8opCyekMFHUFVGB-FpSR6GsimoNLvZNbs_5YSh_SCZoEOtD5SnDjXgHEw/exec";
+  const subject = form["Subject"].value;
+  const description = form["Description"].value;
 
   // Validate inputs
   if (!name || !email || !phone || phone.length < 10) {
@@ -64,26 +63,35 @@ async function handleSubmit(e) {
     return;
   }
 
-  // Create FormData object after validation
-  const formData = new FormData(form);
+  const data = {
+    name,
+    email,
+    phone,
+    subject,
+    description,
+  };
 
+  // Send data to the backend
   try {
-    const response = await fetch(url, {
+    const response = await fetch('https://landing-page-server-8iv6.onrender.com/send-email', {
       method: 'POST',
-      body: formData, // Sending form data
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
     });
 
-    if (response.ok) {
-      alert("Thank you! Your form is submitted successfully.");
-      form.reset(); // Reset form after successful submission
-      window.location.reload(); // Reload the page if needed
-    } else {
-      alert("Failed to submit the form. Please try again.");
+    if (!response.ok) {
+      throw new Error('Failed to send email');
     }
-  } catch (e) {
-    console.log('Error:', e);
-    alert("An error occurred. Please try again.");
+    const result = await response.json();
+    alert("Message sent successfully!");
+    form.reset(); // Reset form after successful submission
+  } catch (error) {
+    console.error('Error:', error);
+    alert("Failed to send message. Please try again.");
   }
 }
 
 </script>
+//ccqj fdku hsze jbmm
