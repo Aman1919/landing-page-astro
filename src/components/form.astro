@@ -31,6 +31,7 @@ const { classes } = Astro.props;
       placeholder="Your Subject"
       name="Subject"
       class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+    required
     />
     <textarea
       placeholder="Your Message"
@@ -58,8 +59,13 @@ async function handleSubmit(event) {
   const description = form["Description"].value;
 
   // Validate inputs
-  if (!name || !email || !phone || phone.length < 10) {
-    alert("Please fill all fields and ensure phone number is at least 10 digits.");
+  if (!name || !email) {
+    alert("Please fill in all required fields.");
+    return;
+  }
+
+  if (!phone || phone.length < 10) {
+    alert("Please enter a valid phone number with at least 10 digits.");
     return;
   }
 
