@@ -8,16 +8,23 @@ import Blog from '../components/blog.astro';
 import GetInTouch from '../components/getintouch.astro';
 import Footer from "../components/footer.astro"
 import DISCLAIMER from "../components/popup.astro"
-import BannerImage from '../assests/banner1.png';
+//import BannerImage from '../assests/banner1.png';
 import Searchandwatch from '../components/searchandwatch.astro';
 import Partners from '../components/partners.astro';
-
+import NewYearBanner from '../assests/newyear2025.jpg';
+import Image from 'astro/components/Image.astro';
 ---
 
 <Layout title="Kieshva Intellect" >
 <main>
 	<Header/>
-<Banner title="Kieshva Intellect" span="Absolut, We protect your IP" img={BannerImage}/>
+  <div class="relative w-full lg:h-screen  h-[70vh] overflow-hidden">
+  <Image 
+    src={NewYearBanner} 
+    alt="Banner Image" 
+    class="absolute inset-0 w-full h-full object-cover object-center lg:bg-cover lg:bg-center lg:bg-no-repeat lg:object-fill" 
+  />
+  </div>
 <Services/>
 <Reviews/>
 <Blog/>
